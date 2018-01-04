@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickAdd(View v)
     {
         data.add(ed.getText().toString());
+        adapter.notifyDataSetChanged();
     }
     public void clickDelete(View v)
     {
