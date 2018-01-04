@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayList<String> data;
     TextView tv, tv2;
+    EditText ed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         tv = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
+        ed = (EditText) findViewById(R.id.editText);
         data = new ArrayList<>();
         data.add("AA11");
         data.add("BB22");
@@ -46,5 +49,10 @@ public class MainActivity extends AppCompatActivity {
     {
         int pos = spinner.getSelectedItemPosition();
         tv2.setText(data.get(pos));
+    }
+    public void clickAdd(View v)
+    {
+        data.add(ed.getText().toString());
+
     }
 }
