@@ -13,13 +13,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayList<String> data;
-    TextView tv;
+    TextView tv, tv2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spinner = (Spinner) findViewById(R.id.spinner);
         tv = (TextView) findViewById(R.id.textView);
+        tv2 = (TextView) findViewById(R.id.textView2);
         data = new ArrayList<>();
         data.add("AA11");
         data.add("BB22");
@@ -40,5 +41,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void click1(View v)
+    {
+        int pos = spinner.getSelectedItemPosition();
+        tv2.setText(data.get(pos));
     }
 }
