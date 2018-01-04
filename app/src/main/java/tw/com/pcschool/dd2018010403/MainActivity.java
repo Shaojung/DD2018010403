@@ -12,9 +12,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Spinner spinner;
+    Spinner spinner, spinner2;
     ArrayList<String> data;
-    TextView tv, tv2;
+    TextView tv, tv2, tv3;
     EditText ed;
     ArrayAdapter<String> adapter;
     @Override
@@ -22,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
         tv = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
+        tv3 = (TextView) findViewById(R.id.textView3);
         ed = (EditText) findViewById(R.id.editText);
         data = new ArrayList<>();
         data.add("AA11");
@@ -37,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 tv.setText(data.get(i));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String str[] = getResources().getStringArray(R.array.cities);
+                tv3.setText(str[i]);
             }
 
             @Override
