@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> data;
     TextView tv, tv2;
     EditText ed;
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         data.add("BB22");
         data.add("CC33");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
+        adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1, data);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
     public void clickAdd(View v)
     {
         data.add(ed.getText().toString());
-
+    }
+    public void clickDelete(View v)
+    {
+        data.remove(spinner.getSelectedItemPosition());
+        adapter.notifyDataSetChanged();
     }
 }
